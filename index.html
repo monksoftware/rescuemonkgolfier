@@ -2,7 +2,7 @@
 <html lang="en"> 
 <head> 
 	<meta charset="UTF-8" />
-	<title>Phaser - Making your first game, part 1</title>
+	<title>404 - Not Found</title>
 	<script type="text/javascript" src="js/phaser.min.js"></script>
     <style type="text/css">
         html, body { height: 100%; }
@@ -79,8 +79,8 @@ function create() {
 
   game.physics.arcade.enable(player);
 
-  player.body.bounce.y = 0.1;
-  player.body.gravity.y = -10;
+  player.body.bounce.y = 0.35;
+  player.body.gravity.y = -15;
   player.body.collideWorldBounds = true;
 
   player.animations.add('left', [3, 4], 10, true);
