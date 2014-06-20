@@ -1,0 +1,7 @@
+html, body { height: 100%; }
+body {
+  position: relative;
+  margin: 0;
+  background: #92b8ab;
+}
+canvas { left: 50%; margin-left: -600px; bottom: 0; position: absolute; display: block; height: 600px; }
