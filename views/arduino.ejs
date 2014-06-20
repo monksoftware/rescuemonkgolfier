@@ -1,0 +1,29 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+  <meta charset="UTF-8" />
+  <title>404 - Not Found</title>
+  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <link href="css/arduino.css" rel="stylesheet" />
+</head>
+<body>
+  <button id="left">Turn Left</button>
+  <button id="right">Turn Right</button>
+
+  <script>
+  var socket = io();
+  $(function(){
+    $('#left').click(function(e) {
+      e.preventDefault();
+      socket.emit('controls', 'turn left');
+    });
+
+    $('#right').click(function(e) {
+      e.preventDefault();
+      socket.emit('controls', 'turn right');
+    });
+  });
+  </script>
+</body>
+</html>

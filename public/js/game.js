@@ -136,3 +136,15 @@ function update() {
 
   game.camera.y -= 4;
 }
+
+var socket = io();
+
+socket.on('turn left', function(mgs) {
+  player.body.velocity.x = -75;
+  player.animations.play('left');
+});
+
+socket.on('turn right', function(mgs) {
+  player.body.velocity.x = 75;
+  player.animations.play('right');
+});

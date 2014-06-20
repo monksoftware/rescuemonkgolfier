@@ -14,6 +14,14 @@ app.set('view engine', 'ejs');
 
 io.on('connection', function(socket) {
   console.log('a user connected');
+  socket.on('controls', function(msg) {
+    console.log(msg);
+    socket.broadcast.emit(msg);
+  });
+});
+
+app.get('/arduino', function(req, res, next) {
+  res.render('arduino');
 });
 
 http.listen(3000, function() {
