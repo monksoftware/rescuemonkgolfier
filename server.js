@@ -21,6 +21,10 @@ io.on('connection', function(socket) {
     console.log(msg);
     socket.broadcast.emit(msg);
   });
+  socket.on('end game', function(msg) {
+    console.log(msg);
+    socket.broadcast.emit("you won","finish");
+  });
 });
 
 app.get('/arduino', function(req, res, next) {

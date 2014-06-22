@@ -14,6 +14,7 @@ var player;
 var cursors;
 var homeSpace;
 var finishLine;
+var socket = io();
 
 function create() {
   game.world.setBounds(0, 0, 1200, 3200);
@@ -107,6 +108,7 @@ var redirected = false;
 function endGame(player, finishLine) {
   if(!redirected) {
     redirected = true;
+    socket.emit('end game');
     window.location.href = 'http://wearemonk.com';
   }
 }
@@ -136,8 +138,6 @@ function update() {
 
   game.camera.y -= 4;
 }
-
-var socket = io();
 
 socket.on('turn left', function(mgs) {
   player.body.velocity.x = -75;

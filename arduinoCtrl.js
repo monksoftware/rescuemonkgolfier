@@ -59,7 +59,6 @@ exports.arduinoCtrl = function (io) {
 	      });
 	    });
 
-
 	  });
 
 	});
