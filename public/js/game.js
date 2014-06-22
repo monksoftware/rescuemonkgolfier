@@ -130,7 +130,7 @@ function update() {
     player.body.velocity.x = 75;
     player.animations.play('right');
   } else {
-    player.animations.stop();
+    //player.animations.stop();
     player.frame = 2;
   }
 

@@ -6,6 +6,9 @@ var io = require('socket.io')(http);
 var bodyParser = require('body-parser');
 var path = require('path');
 
+var arduino = require('./arduinoCtrl');
+arduino.arduinoCtrl(io);
+
 app.use(bodyParser());
 
 app.use(express.static(__dirname + '/public'));
