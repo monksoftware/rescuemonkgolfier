@@ -31,7 +31,7 @@ function create() {
   ground.body.immovable = true;
 
 
-  var xes = [50, 250, 450, 650, 850, 1050 ];
+  var xes = [75, 275, 475, 675, 875, 1075 ];
   var cloud;
 
   for(var i = 2; i < 15; i++) {
@@ -117,7 +117,7 @@ function update() {
   game.physics.arcade.overlap(finishLine, player, endGame, null, this);
 
   // Max flight vertical speed
-  if (player.body.velocity.y < -50) player.body.velocity.y = -50;
+  if (player.body.velocity.y < -75) player.body.velocity.y = -75;
 
   // Max flight horizontal speed
   if (player.body.velocity.x > 0) player.body.velocity.x -= 1;
