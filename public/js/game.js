@@ -111,6 +111,19 @@ function endGame(player, finishLine) {
   }
 }
 
+var isTurningLeft = false;
+var isTurningRight = false;
+
+function turnLeft() {
+  player.body.velocity.x = -75;
+  isTurningLeft = true;
+}
+
+function turnRight() {
+  player.body.velocity.x = 75;
+  isTurningRight = true;
+}
+
 function update() {
   game.physics.arcade.collide(player, platforms);
 
@@ -123,16 +136,22 @@ function update() {
   if (player.body.velocity.x > 0) player.body.velocity.x -= 1;
   if (player.body.velocity.x < 0) player.body.velocity.x += 1;
 
-  if (cursors.left.isDown) {
-    player.body.velocity.x = -75;
+  if (isTurningLeft) {
     player.animations.play('left');
-  } else if (cursors.right.isDown) {
-    player.body.velocity.x = 75;
+    isTurningLeft = false;
+  } else if (isTurningRight) {
     player.animations.play('right');
+    isTurningRight = false;
   } else {
     player.animations.stop();
     player.frame = 2;
   }
+
+  if (cursors.left.isDown) {
+    turnLeft();
+  } else if (cursors.right.isDown) {
+    turnRight();
+  } 
 
   game.camera.y -= 4;
 }
@@ -140,11 +159,9 @@ function update() {
 var socket = io();
 
 socket.on('turn left', function(mgs) {
-  player.body.velocity.x = -75;
-  player.animations.play('left');
+  turnLeft();
 });
 
 socket.on('turn right', function(mgs) {
-  player.body.velocity.x = 75;
-  player.animations.play('right');
+  turnRight();
 });
