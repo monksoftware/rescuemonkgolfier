@@ -7,6 +7,8 @@ define(function () {
     },
 
     create: function() {
+      this.socket = io();
+
       this.game.add.sprite(0, 0, 'sky');
       this.game.add.sprite(0, 600, 'sky');
       this.game.add.sprite(0, 1200, 'sky');
@@ -50,7 +52,23 @@ define(function () {
       instructions.setShadow(0, 0, 'rgba(0, 0, 0, 0.5)', 5);
 
       this.startButton = this.game.add.button(this.game.world.centerX - 250, 300, 'startButton', this.startClick, this);
+
+      var self = this;
+
+      this.socket.on('controller connected', function(msg) {
+        var controller = self.game.add.text(self.game.world.centerX, 250, msg + ' controller connected');
+        controller.anchor.set(0.5);
+        controller.align = 'center';
+
+        controller.font = 'Arial';
+        controller.fontSize = 30;
+        controller.fontWeight = 'normal';
+        controller.fill = '#b6463b';
+
+        controller.setShadow(0, 0, 'rgba(255, 255, 255, 0.5)', 5);
+      });
     },
+
 
     startClick: function() {
       this.game.state.start('play');

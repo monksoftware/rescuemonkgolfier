@@ -20,6 +20,10 @@ io.on('connection', function(socket) {
   socket.on('finish', function(msg) {
     socket.broadcast.emit('you won');
   });
+
+  socket.on('controller', function(msg) {
+    socket.broadcast.emit('controller connected', msg);
+  });
 });
 
 app.get('/arduino', function(req, res, next) {

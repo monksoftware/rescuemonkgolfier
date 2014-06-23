@@ -17,6 +17,8 @@
     window.location.href = 'http://www.wearemonk.com';
   });
 
+  socket.emit('controller', 'Nexsus 5');
+
   $(function(){
     $('#left').click(function(e) {
       e.preventDefault();
