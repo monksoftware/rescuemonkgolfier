@@ -29,16 +29,16 @@ define(function () {
       this.ground = this.platforms.create(0, this.game.world.height - 188, 'ground');
       this.ground.body.immovable = true;
 
-      var xes = [75, 275, 475, 675, 875, 1075 ];
+      var xes = [75, 275, 475, 675, 875, 1075];
       var cloud;
 
-      for(var i = 2; i < 15; i++) {
+      for(var i = 2; i < 12; i++) {
         for(var j = 0; j < 4; j++) {
           var random = [0,1,2,3,4,5][Math.floor(Math.random()*5)];
           var randomCloud = 'cloud' + (random % 2 + 1);
           var offset = 0;
           if(i % 2 === 0) offset = 100; 
-          cloud = this.platforms.create(xes[random] + offset, i * 200, randomCloud);
+          cloud = this.platforms.create(xes[random] + offset, i * 250, randomCloud);
           cloud.body.immovable = true;
         }
       }
@@ -79,8 +79,8 @@ define(function () {
 
       if (this.player.body.velocity.y < -75) this.player.body.velocity.y = -75;
 
-      if (this.player.body.velocity.x > 0) this.player.body.velocity.x -= 1;
-      if (this.player.body.velocity.x < 0) this.player.body.velocity.x += 1;
+      if (this.player.body.velocity.x > 0) this.player.body.velocity.x -= 2;
+      if (this.player.body.velocity.x < 0) this.player.body.velocity.x += 2;
 
       if (this.isTurningLeft) {
         this.player.animations.play('left');
