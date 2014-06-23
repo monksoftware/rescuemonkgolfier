@@ -26,8 +26,8 @@ io.on('connection', function(socket) {
   });
 });
 
-app.get('/arduino', function(req, res, next) {
-  res.render('arduino');
+app.get('/gamepad', function(req, res, next) {
+  res.render('gamepad');
 });
 
 http.listen(3000, function() {
