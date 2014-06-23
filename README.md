@@ -30,7 +30,7 @@ npm start
 
 ## Grab your smartphone!
 
-Start Chrome on your smartphone and nagivate to `http://YOURPCIP:3000/arduino`
+Start Chrome on your smartphone and nagivate to `http://YOURPCIP:3000/gamepad`
 
 ## Play
 
