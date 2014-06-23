@@ -49,7 +49,7 @@ define(function () {
 
       instructions.setShadow(0, 0, 'rgba(0, 0, 0, 0.5)', 5);
 
-      this.startButton = this.game.add.button(this.game.width / 2, 300, 'startButton', this.startClick, this);
+      this.startButton = this.game.add.button(this.game.world.centerX - 250, 300, 'startButton', this.startClick, this);
     },
 
     startClick: function() {

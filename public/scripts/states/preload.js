@@ -7,6 +7,7 @@ define(function () {
       this.load.image('cloud2', 'assets/cloud2.png');
       this.load.image('ground', 'assets/ground.png');
       this.load.image('home', 'assets/home.png');
+      this.load.image('startButton', 'assets/start.png');
       this.load.spritesheet('monk', 'assets/monk.png', 80, 103);
     },
 
