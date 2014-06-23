@@ -13,10 +13,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 io.on('connection', function(socket) {
-  console.log('a user connected');
   socket.on('controls', function(msg) {
-    console.log(msg);
     socket.broadcast.emit(msg);
+  });
+
+  socket.on('finish', function(msg) {
+    socket.broadcast.emit('you won');
   });
 });
 
