@@ -2,7 +2,6 @@ define(function () {
   return {
     preload: function() {
       this.load.onLoadComplete.addOnce(this.onLoadComplete, this);
-      console.log('preloading assets');
       this.load.image('sky', 'assets/sky.png');
       this.load.image('cloud1', 'assets/cloud1.png');
       this.load.image('cloud2', 'assets/cloud2.png');
@@ -12,7 +11,6 @@ define(function () {
     },
 
     onLoadComplete: function() {
-      console.log('loaded');
       this.game.state.start('menu');
     },
 
