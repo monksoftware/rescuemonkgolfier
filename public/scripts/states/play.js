@@ -10,6 +10,7 @@ define(function () {
       this.homeSpace = null;
       this.finishLine = null;
       this.ground = null;
+      this.socket = io();
     },
 
     create: function() {
@@ -59,6 +60,16 @@ define(function () {
       this.cursors = this.game.input.keyboard.createCursorKeys();
 
       this.game.camera.follow(this.player);
+
+      var self = this;
+
+      this.socket.on('turn left', function(msg) {
+        self.turnLeft();
+      });
+
+      this.socket.on('turn right', function(msg) {
+        self.turnRight();
+      });
     },
 
     update: function() {
@@ -103,10 +114,6 @@ define(function () {
 
     endGame: function() {
       this.game.state.start('finish');
-     //if(!this.redirected) {
-     //  this.redirected = true;
-     //  window.location.href = 'http://wearemonk.com';
-     //}
     }
   }
 });
