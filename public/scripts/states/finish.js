@@ -11,7 +11,7 @@ define(function () {
       this.socket.emit('finish');
 
       setTimeout(function() {
-        window.location.href = 'http://www.wearemonk.com';
+        window.location.href = 'http://www.monksoftware.it';
       }, 500);
     }
   };
